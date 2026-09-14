@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azkarr - الأذكار الشاملة والرقية الشرعية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+:root {
+    --bg-color: #0d0914;
+    --bg-mesh: 
+        radial-gradient(at 10% 10%, rgba(236, 72, 153, 0.22) 0px, transparent 45%),
+        radial-gradient(at 90% 10%, rgba(168, 85, 247, 0.22) 0px, transparent 45%),
+        radial-gradient(at 50% 90%, rgba(217, 70, 239, 0.18) 0px, transparent 50%);
+    
+    --text-color: #fcf7fd;
+    --subtitle-color: #d8b4fe;
+    
+    --card-bg: rgba(27, 18, 38, 0.55);
+    --card-border: rgba(247, 207, 250, 0.12);
+    --card-hover-border: rgba(236, 72, 153, 0.45);
+    
+    --zekr-bg: rgba(27, 18, 38, 0.45);
+    --zekr-text: #fdf8fe;
+    --header-border: rgba(247, 207, 250, 0.08);
+    
+    --btn-bg: rgba(247, 207, 250, 0.06);
+    --btn-hover: rgba(236, 72, 153, 0.2);
+    
+    --shadow: 0 20px 45px -10px rgba(13, 9, 20, 0.6);
+    --accent-color: #f472b6;
+    --accent-gradient: linear-gradient(135deg, #ec4899 0%, #a855f7 50%, #d946ef 100%);
+    
+    --blur-val: blur(28px) saturate(180%);
+}
+
+[data-theme="light"] {
+    --bg-color: #fcf7fc;
+    --bg-mesh: 
+        radial-gradient(at 10% 10%, rgba(251, 207, 232, 0.7) 0px, transparent 50%),
+        radial-gradient(at 90% 10%, rgba(233, 213, 255, 0.7) 0px, transparent 50%),
+        radial-gradient(at 50% 90%, rgba(245, 208, 254, 0.6) 0px, transparent 50%);
+    
+    --text-color: #2e1035;
+    --subtitle-color: #7e22ce;
+    
+    --card-bg: rgba(255, 255, 255, 0.75);
+    --card-border: rgba(255, 255, 255, 0.95);
+    --card-hover-border: rgba(219, 39, 119, 0.4);
+    
+    --zekr-bg: rgba(255, 255, 255, 0.65);
+    --zekr-text: #2e1035;
+    --header-border: rgba(126, 34, 206, 0.08);
+    
+    --btn-bg: rgba(255, 255, 255, 0.8);
+    --btn-hover: rgba(255, 255, 255, 1);
+    
+    --shadow: 0 20px 40px -12px rgba(126, 34, 206, 0.08);
+    --accent-color: #db2777;
+    --accent-gradient: linear-gradient(135deg, #db2777 0%, #9333ea 50%, #c026d3 100%);
+    
+    --blur-val: blur(28px) saturate(160%);
+}
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Tajawal', sans-serif;
+        transition: background 0.35s ease, color 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    html, body {
+        width: 100% !important;
+        min-height: 100vh !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        direction: rtl !important;
+        background-color: var(--bg-color);
+        background-image: var(--bg-mesh);
+        background-attachment: fixed;
+        background-size: cover;
+        color: var(--text-color);
+        overflow-x: hidden;
+    }
+
+    .container {
+        width: 100% !important;
+        max-width: 1280px !important;
+        min-height: 100vh !important;
+        margin: 0 auto !important;
+        padding: 40px 30px !important;
+        box-sizing: border-box !important;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .header {
+        text-align: center;
+        margin-bottom: 40px;
+        position: relative;
+        padding: 40px 30px;
+        background: var(--card-bg);
+        backdrop-filter: var(--blur-val);
+        -webkit-backdrop-filter: var(--blur-val);
+        border: 1px solid var(--card-border);
+        border-radius: 32px;
+        box-shadow: var(--shadow);
+    }
+
+    .theme-toggle {
+        position: absolute;
+        top: 30px;
+        left: 30px;
+        background: var(--btn-bg);
+        border: 1px solid var(--card-border);
+        backdrop-filter: var(--blur-val);
+        -webkit-backdrop-filter: var(--blur-val);
+        color: var(--text-color);
+        padding: 10px 22px;
+        border-radius: 50px;
+        cursor: pointer;
+        font-size: 0.9rem;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+    
+    .theme-toggle:hover {
+        background: var(--btn-hover);
+        border-color: var(--card-hover-border);
+        transform: translateY(-2px);
+    }
+
+    .logo {
+        font-size: 3.4rem;
+        font-weight: 800;
+        letter-spacing: -1px;
+        margin-bottom: 8px;
+        background: var(--accent-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+        color: var(--subtitle-color);
+        font-size: 1.15rem;
+        font-weight: 500;
+    }
+
+    .page-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+        padding: 22px 32px;
+        background: var(--card-bg);
+        backdrop-filter: var(--blur-val);
+        -webkit-backdrop-filter: var(--blur-val);
+        border: 1px solid var(--card-border);
+        border-radius: 28px;
+        width: 100%;
+        box-shadow: var(--shadow);
+    }
+
+    .page-header h2 {
+        font-size: 1.55rem;
+        font-weight: 700;
+        color: var(--text-color);
+    }
+
+    .reset-btn {
+        background: var(--btn-bg);
+        border: 1px solid var(--card-border);
+        backdrop-filter: var(--blur-val);
+        -webkit-backdrop-filter: var(--blur-val);
+        color: var(--text-color);
+        padding: 10px 24px;
+        border-radius: 50px;
+        cursor: pointer;
+        font-size: 0.92rem;
+        font-weight: 600;
+    }
+
+    .reset-btn:hover {
+        background: var(--btn-hover);
+        border-color: var(--card-hover-border);
+        transform: translateY(-2px);
+    }
+
+    .azkar-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+        gap: 26px;
+        width: 100%;
+    }
+
+    .zekr-card {
+        background: var(--zekr-bg);
+        backdrop-filter: var(--blur-val);
+        -webkit-backdrop-filter: var(--blur-val);
+        border: 1px solid var(--card-border);
+        border-radius: 30px;
+        padding: 30px;
+        box-shadow: var(--shadow);
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .zekr-card:hover {
+        border-color: var(--card-hover-border);
+    }
+
+    .zekr-card.completed {
+        opacity: 0.4;
+        transform: scale(0.98);
+        filter: grayscale(20%);
+    }
+
+    .zekr-content-inner {
+        font-size: 1.12rem;
+        line-height: 2.1;
+        margin-bottom: 22px;
+        color: var(--zekr-text);
+        text-align: justify;
+    }
+
+    .zekr-content-inner p {
+        margin-bottom: 12px;
+    }
+
+    .zekr-note {
+        font-size: 0.95rem;
+        color: var(--accent-color);
+        margin-bottom: 20px;
+        font-weight: 700;
+        background: var(--btn-bg);
+        display: inline-block;
+        padding: 6px 18px;
+        border-radius: 50px;
+        border: 1px solid var(--card-border);
+        align-self: flex-start;
+    }
+
+    .zekr-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 18px;
+        border-top: 1px solid var(--header-border);
+        margin-top: auto;
+    }
+
+    .counter-badge {
+        background: var(--accent-gradient);
+        color: #ffffff;
+        font-size: 0.95rem;
+        padding: 8px 24px;
+        border-radius: 50px;
+        font-weight: 700;
+        box-shadow: 0 4px 18px rgba(236, 72, 153, 0.3);
+    }
+
+    .counter-badge.done {
+        background: #10b981 !important;
+        box-shadow: 0 4px 18px rgba(16, 185, 129, 0.3) !important;
+    }
+
+    .count-btn {
+        background: var(--btn-bg);
+        border: 1px solid var(--card-border);
+        backdrop-filter: var(--blur-val);
+        -webkit-backdrop-filter: var(--blur-val);
+        color: var(--text-color);
+        padding: 10px 28px;
+        border-radius: 50px;
+        cursor: pointer;
+        font-size: 0.95rem;
+        font-weight: 600;
+    }
+
+    .count-btn:hover {
+        background: var(--btn-hover);
+        border-color: var(--card-hover-border);
+        transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+        .container {
+            padding: 20px 16px !important;
+        }
+        .header {
+            padding: 30px 18px;
+        }
+        .theme-toggle {
+            position: relative;
+            top: 0;
+            left: 0;
+            margin: 0 auto 16px auto;
+            width: fit-content;
+        }
+        .logo {
+            font-size: 2.4rem;
+        }
+        .azkar-list {
+            grid-template-columns: 1fr;
+        }
+    }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- ترويسة الموقع -->
+        <header class="header">
+            <button class="theme-toggle" onclick="toggleTheme()">
+                <span id="theme-icon">☀️</span>
+                <span id="theme-text">light</span>
+            </button>
+            <div class="logo">Azkarr</div>
+            <div class="subtitle">حصن المسلم والورد الشامل والرقية الشرعية</div>
+        </header>
+
+        <div class="page-header">
+            <h2>الأذكار والآيات الشاملة</h2>
+            <button class="reset-btn" onclick="resetAllCounters()">إعادة ضبط العدادات</button>
+        </div>
+
+        <!-- قائمة الكروت -->
+        <div class="azkar-list">
+
+            <!-- 1. الفاتحة -->
+            <div class="zekr-card" id="card-w1">
+                <div class="zekr-note">الفاتحه (7 مرات)</div>
+                <div class="zekr-content-inner">
+                    <p>بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ (1) الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ (2) الرَّحْمَٰنِ الرَّحِيمِ (3) مَالِكِ يَوْمِ الدِّينِ (4) إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (5) اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ (6) صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ (7).</p>
+                </div>
+                <div class="zekr-footer">
+                    <span class="counter-badge" id="w1">المتبقي: 7</span>
+                    <button class="count-btn" onclick="updateCounter('w1', 7)">قرأت مرة</button>
+                </div>
+            </div>
+
+            <!-- 2. آية الكرسي -->
+            <div class="zekr-card" id="card-w2">
+                <div class="zekr-note">ايه الكرسي (7 مرات)</div>
+                <div class="zekr-content-inner">
+                    <p>اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ ۚ لَّهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ ۗ مَن ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلَّا بِإِذْنِهِ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۚ وَلَا يُحِيطُونَ بِشَيْءٍ مِّنْ عِلْمِهِ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ ۚ وَلَا يَئُودُهُ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيمُ.</p>
+                </div>
+                <div class="zekr-footer">
+                    <span class="counter-badge" id="w2">المتبقي: 7</span>
+                    <button class="count-btn" onclick="updateCounter('w2', 7)">قرأت مرة</button>
+                </div>
+            </div>
+
+            <!-- 3. سورة الملك -->
+            <div class="zekr-card" id="card-w3">
+                <div class="zekr-note">سوره الملك (مره واحده)</div>
+                <div class="zekr-content-inner">
+                    <p>تَبَارَكَ الَّذِي بِيَدِهِ الْمُلْكُ وَهُوَ عَلَىٰ كُلِّ شَيْءٍ قَدِيرٌ (1) الَّذِي خَلَقَ الْمَوْتَ وَالْحَيَاةَ لِيَبْلُوَكُمْ أَيُّكُمْ أَحْسَنُ عَمَلًا ۚ وَهُوَ الْعَزِيزُ الْغَفُورُ (2) الَّذِي خَلَقَ سَبْعَ سَمَاوَاتٍ طِبَاقًا ۖ مَّا تَرَى فِي خَلْقِ الرَّحْمَٰنِ مِن تَفَاوُتٍ ۖ فَارْجِعِ الْبَصَرَ هَل ترى مِن فُطُورٍ (3) ثُمَّ ارْجِعِ الْبَصَرَ كَرَّتَيْنِ يَنقَلِبْ إِلَيْكَ الْبَصَرُ خَاسِئًا وَهُوَ حَسِيرٌ (4) وَلَقَدْ زَيَّنَّا السَّمَاءَ الدُّنْيَا بِمَصَابِيحَ وَجَعَلْنَاهَا رُجُومًا لِلشَّيَاطِينِ ۖ وَأَعْتَدْنَا لَهُمْ عَذَابَ السَّعِيرِ (5) وَلِلَّذِينَ كَفَرُوا بِرَبِّهِمْ عَذَابُ جَهَنَّمَ ۖ وَبِئْسَ الْمَصِيرُ (6) إِذَا أُلْقُوا فِيهَا سَمِعُوا لَهَا شَهِيقًا وَهِيَ تَفُورُ (7) تَكَادُ تَمَيَّزُ مِنَ الْغَيْظِ ۖ كُلَّمَا أُلْقِيَ فِيهَا فَوْجٌ سَأَلَهُمْ خَزَنَتُهَا أَلَمْ يَأْتِكُمْ نَذِيرٌ (8) قَالُوا بَلَىٰ قَدْ جَاءَنَا نَذِيرٌ فَكَذَّبْنَا وَقُلْنَا مَا نَزَّلَ اللَّهُ مِن شَيْءٍ إِنْ أَنتُمْ إِلَّا فِي ضَلَالٍ كَبِيرٍ (9) وَقَالُوا لَوْ كُنَّا نَسْمَعُ أَوْ نَعْقِلُ مَا كُنَّا فِي أَصْحَابِ السَّعِيرِ (10) فَاعْتَرَفُوا بِذَنبِهِمْ فَسُحْقًا لِّأَصْحَابِ السَّعِيرِ (11) إِنَّ الَّذِينَ يَخْشَوْنَ رَبَّهُم بِالْغَيْبِ لَهُم مَّغْفِرَةٌ وَأَجْرٌ كَبِيرٌ (12) وَأَسِرُّوا قَوْلَكُمْ أَوِ اجْهَرُوا بِهِ ۖ إِنَّهُ عَلِيمٌ بِذَاتِ الصُّدُورِ (13) أَلَا يَعْلَمُ مَنْ خَلَقَ وَهُوَ اللَّطِيفُ الْخَبِيرُ (14) هُوَ الَّذِي جَعَلَ لَكُمُ الْأَرْضَ ذَلُولًا فَامْشُوا فِي مَنَاكِبِهَا وَكُلُوا مِن رِّزْقِهِ ۖ وَإِلَيْهِ النُّشُورُ (15) أَأَمِنتُم مَّن in السَّمَاءِ أَن يَخْسِفَ بِكُمُ الْأَرْضَ فَإِذَا هِيَ تَمُورُ (16) أَمْ أَمِنتُم مَّن in السَّمَاءِ أَن يُرْسِلَ عَلَيْكُمْ حَاصِبًا ۖ فَسَتَعْلَمُونَ كَيْفَ نَذِيرِ (17) وَلَقَدْ كَذَّبَ الَّذِينَ مِن قَبْلِهِمْ فَكَيْفَ كَانَ نَكِيرِ (18) أَوَلَمْ يَرَوْا إِلَى الطَّيْرِ فَوْقَهُمْ صَافَّاتٍ وَيَقْبِضْنَ ۚ مَا يُمْسِكُهُنَّ إِلَّا الرَّحْمَٰنُ ۚ إِنَّهُ بِكُلِّ شَيْءٍ بَصِيرٌ (19) أَمَّن هَّذَا الَّذِي هُوَ جُندٌ لَّكُمْ يَنصُرُكُم مِّن دُونِ الرَّحْمَٰنِ ۚ إِنِ الْكَافِرُونَ إِلَّا فِي غُرُورٍ (20) أَمَّن هَّذَا الَّذِي يَرْزُقُكُمْ إِنْ أَمْسَكَ رِزْقَهُ ۚ بَل لَّجُّوا فِي عُتُوٍّ وَنُفُورٍ (21) أَفَمَن يَمشي مُكِبًّا عَلَىٰ وَجْهِهِ أَهْدَىٰ أَمَّن يَمْشِي سَوِيًّا عَلَىٰ صِرَاطٍ مُّسْتَقِيمٍ (22) قُلْ هُوَ الَّذِي أَنشَأَكُمْ وَجَعَلَ لَكُمُ السَّمْعَ وَالْأَبْصَارَ وَالْأَفْئِدَةَ ۖ قَلِيلًا مَّا تَشْكُرُونَ (23) قُلْ هُوَ الَّذِي ذرأكم في الأرض وإليه تحشرون (24) ويقولون متى هذا الوعد إن كنتم صادقين (25) قل إنما العلم عند الله وإنما أنا نذير مبين (26) فلما رأوه زلفة سيئت وجوه الذين كفروا وقيل هذا الذي كنتم به تدعون (27) قل أرأيتم إن أهلكني الله ومن معي أو رحمنا فمن يجير الكافرين من عذاب أليم (28) قل هو الرحمن آمنا به وعليه توكلنا فستعلمون من هو في ضلال مبين (29) قل أرأيتم إن أصبح ماؤكم غورا فمن يأتيكم بماء معين (30).</p>
+                </div>
+                <div class="zekr-footer">
+                    <span class="counter-badge" id="w3">المتبقي: 1</span>
+                    <button class="count-btn" onclick="updateCounter('w3', 1)">تمت القراءة</button>
+                </div>
+            </div>
+
+            <!-- 4. آية 51 و 52 سورة القلم -->
+            <div class="zekr-card" id="card-w4">
+                <div class="zekr-note">ايه 51 و 52 سوره القلم (7 مرات)</div>
+                <div class="zekr-content-inner">
+                    <p>وإن يكاد الذين كفروا ليزلقونك بأبصارهم لما سمعوا الذكر ويقولون إنه لمجنون (51) وما هو إلا ذكر للعالمين (52).</p>
+                </div>
+                <div class="zekr-footer">
+                    <span class="counter-badge" id="w4">المتبقي: 7</span>
+                    <button class="count-btn" onclick="updateCounter('w4', 7)">قرأت مرة</button>
+                </div>
+            </div>
+
+            <!-- 4 مكرر. سورة الإخلاص والمعوذتين (7 مرات) -->
+            <div class="zekr-card" id="card-w15">
+                <div class="zekr-note">سورة الإخلاص والمعوذتين (7 مرات)</div>
+                <div class="zekr-content-inner">
+                    <p><strong>سورة الإخلاص:</strong> قل هو الله أحد (1) الله الصمد (2) لم يلد ولم يولد (3) ولم يكن له كفوا أحد (4).</p>
+                    <p><strong>سورة الفلق:</strong> قل أعوذ برب الفلق (1) من شر ما خلق (2) ومن شر غاسق إذا وقب (3) ومن شر النفاثات في العقد (4) ومن شر حاسد إذا حسد (5).</p>
+                    <p><strong>سورة الناس:</strong> قل أعوذ برب الناس (1) ملك الناس (2) إله الناس (3) من شر الوسواس الخناس (4) الذي يوسوس في صدور الناس (5) من الجنة والناس (6).</p>
+                </div>
+                <div class="zekr-footer">
+                    <span class="counter-badge" id="w15">المتبقي: 7</span>
+                    <button class="count-btn" onclick="updateCounter('w15', 7)">قرأت مرة</button>
+                </div>
+            </div>
+
+            <!-- 5. تشغيل سورة البقرة -->
+            <div class="zekr-card" id="card-w5">
+                <div class="zekr-note">تشغيل سورة البقرة</div>
+                <div class="zekr-content-inner">
+                    <p>تشغيل وسماع سوره البقره بالبيت.</p>
+                </div>
+                <div class="zekr-footer">
+                    <span class="counter-badge" id="w5">المتبقي: 1</span>
+                    <button class="count-btn" onclick="updateCounter('w5', 1)">تم التشغيل</button>
+                </div>
+            </div>
+
+            <!-- 6. دعاء التحصين -->
+            <div class="zekr-card" id="card-w6">
+                <div class="zekr-note">الدعاء</div>
+                <div class="zekr-content-inner">
+                    <p>«أعوذ بكلمات الله التامة من كل شيطان وهامة، ومن كل عين لامة».</p>
+                </div>
+                <div class="zekr-footer">
+                    <span class="counter-badge" id="w6">المتبقي: 1</span>
+                    <button class="count-btn" onclick="updateCounter('w6', 1)">تمت القراءة</button>
+                </div>
+            </div>
+
+            <!-- 7. التسمية على الطعام -->
+            <div class="zekr-card" id="card-w7">
+                <div class="zekr-note">التسميه على كل طعام</div>
+                <div class="zekr-content-inner">
+                    <p>التسمية عند الأكل والشرب حفظاً وبركةً.</p>
+                </div>
+                <div class="zekr-footer">
+                    <span class="counter-badge" id="w7">المتبقي: 1</span>
+                    <button class="count-btn" onclick="updateCounter('w7', 1)">تمت المراعاة</button>
+                </div>
+            </div>
+
+            <!-- 8. سورة الضحى -->
+            <div class="zekr-card" id="card-w8">
+                <div class="zekr-note">قراءه سوره الضحى (7 مرات قبل الغروب)</div>
+                <div class="zekr-content-inner">
+                    <p>والضحى (1) والليل إذا سجى (2) ما ودعك ربك وما قلى (3) وللآخرة خير لك من الأولى (4) ولسوف يعطيك ربك فترضى (5) ألم يجدك يتيما فآوى (6) ووجدك ضالا فهدى (7) ووجدك عائلا فأغنى (8) فأما اليتيم فلا تقهر (9) وأما السائل فلا تنهر (10) وأما بنعمة ربك فحدث (11).</p>
+                </div>
+                <div class="zekr-footer">
+                    <span class="counter-badge" id="w8">المتبقي: 7</span>
+                    <button class="count-btn" onclick="updateCounter('w8', 7)">قرأت مرة</button>
+                </div>
+            </div>
+
+            <!-- 9. الأدعية الجامعة -->
+            <div class="zekr-card" id="card-w9">
+                <div class="zekr-note">أدعية رفع الأذى</div>
+                <div class="zekr-content-inner">
+                    <p>«اللهم رد كل سحر واذى عنى من الانس الجن ومن كل من اذاني او اراد اذيتي إلى نحور أصحابها واشغلهم بها وكف وارفع عنى كل أذى ومرض انت حسبى ونعم الوكيل».</p>
+                    <p>«اللهم انى التجأت إليك وتلقت بك واسندت ظهري اليك فاكشف عنى ما ابتليت وارفع عنى كل سوء فإنك ترى ولا أرى وتعلم ولا أعلم وتقدر ولا اقدر أنك على كل شيء قدير».</p>
+                    <p>وصلى اللهم على سيدنا محمد وعلى آله وصحبه وسلم.</p>
+                </div>
+                <div class="zekr-footer">
+                    <span class="counter-badge" id="w9">المتبقي: 1</span>
+                    <button class="count-btn" onclick="updateCounter('w9', 1)">تم الدعاء</button>
+                </div>
+            </div>
+
+            <!-- 10. القلم 3، الكرسي 3، الهمزة 7، الزلزلة 3 -->
+            <div class="zekr-card" id="card-w10">
+                <div class="zekr-note">القلم 3، الكرسي 3، الهمزة 7، الزلزلة 3</div>
+                <div class="zekr-content-inner">
+                    <p><strong>آية الكرسي:</strong> الله لا إله إلا هو الحي القيوم لا تأخذه سنة ولا نوم له ما في السماوات وما في الأرض من ذا الذي يشفع عنده إلا بإذنه يعلم ما بين أيديهم وما خلفهم ولا يحيطون بشيء من علمه إلا بما شاء وسع كرسيه السماوات والأرض ولا يئوده حفظهما وهو العلي العظيم.</p>
+                    <p><strong>سورة القلم (كاملة):</strong> ن والقلم وما يسطرون (1) ما أنت بنعمة ربك بمجنون (2) وإن لك لأجرا غير ممنون (3) وإنك لعلى خلق عظيم (4) فستبصر ويبصرون (5) بأيكم المفتون (6) إن ربك هو أعلم بمن ضل عن سبيله وهو أعلم بالمهتدين (7) فلا تطع المكذبين (8) ودوا لو تدهن فيدهنون (9) ولا تطع كل حلاف مهين (10) هماز مشاء بنميم (11) مناع للخير معتد أثيم (12) عتل بعد ذلك زنيم (13) أن كان ذا مال وبنين (14) إذا تتلى عليه آياتنا قال أساطير الأولين (15) سنسرمه على الخرطوم (16) إنا بلوناهم كما بلونا أصحاب الجنة إذ أقسموا ليصرمونها مصبحين (17) ولا يستثنون (18) فطاف عليها طائف من ربك وهم نائمون (19) فأصبحت كالصريم (20) فتنادوا مصبحين (21) أن اغدوا على حرثكم إن كنتم صارمين (22) فانطلقوا وهم يتخافتون (23) أن لا يدخلنها اليوم عليكم مسكين (24) وغدوا على حرد قادرين (25) فلما رأوها قالوا إنا لضالون (26) بل نحن محرومون (27) قال أوسطهم ألم أقل لكم لولا تسبحون (28) قالوا سبحان ربنا إنا كنا ظالمين (29) فأقبل بعضهم على بعض يتلاومون (30) قالوا يا ويلنا إنا كنا طاغين (31) عسى ربنا أن يبدلنا خيرا منها إنا إلى ربنا راغبون (32) كذلك العذاب ولعذاب الآخرة أكبر لو كانوا يعلمون (33) إن للمتقين عند ربهم جنات النعيم (34) أفنجعل المسلمين كالمجرمين (35) ما لكم كيف تحكمون (36) أم لكم كتاب فيه تدرسون (37) إن لكم فيه لما تخيرون (38) أم لكم أيمان علينا بالغة إلى يوم القيامة إن لكم لما تحكمون (39) سلهم أيهم بذلك زعيم (40) أم لهم شركاء فليأتوا بشركائهم إن كانوا صادقين (41) يوم يكشف عن ساق ويدعون إلى السجود فلا يستطيعون (42) خاشعة أبصارهم ترهقهم ذلة وقد كانوا يدعون إلى السجود وهم سالمون (43) فذرني ومن يكذب بهذا الحديث سنستدرجهم من حيث لا يعلمون (44) وأم لي لهم إن كيدي متين (45) أم تسألهم أجرا فهوم من مغرم مثقلون (46) أم عندهم الغيب فهم يكتبون (47) فاصبر لحكم ربك ولا تكن كصاحب الحوت إذ نادى وهو مكظوم (48) لولا أن تداركه نعمة من ربه لنُبِذَ بالعراء وهو مذموم (49) فاجتباه ربه فجعله من الصالحين (50) وإن يكاد الذين كفروا ليزلقونك بأبصارهم لما سمعوا الذكر ويقولون إنه لمجنون (51) وما هو إلا ذكر للعالمين (52).</p>
+                    <p><strong>سورة الهمزة:</strong> ويل لكل همزة لمزة (1) الذي جمع مالا وعدده (2) يحسب أن ماله أخلده (3) كلا لينبذن في الحطمة (4) وما أدراك ما الحطمة (5) نار الله الموقدة (6) التي تطلع على الأفئدة (7) إنها عليهم مؤصدة (8) في عمد ممددة (9).</p>
+                    <p><strong>سورة الزلزلة:</strong> إذا زلزلت الأرض ززالها (1) وأخرجت الأرض أثقالها (2) وقال الإنسان ما لها (3) يومئذ تحدث أخبارها (4) بأن ربك أوحى لها (5) يومئذ يصدر الناس أشتاتا ليروا أعمالهم (6) فمن يعمل مثقال ذرَّة خيرا يره (7) ومن يعمل مثقال ذرَّة شرا يره (8).</p>
+                </div>
+                <div class="zekr-footer">
+                    <span class="counter-badge" id="w10">المتبقي: 1</span>
+                    <button class="count-btn" onclick="updateCounter('w10', 1)">تمت القراءة</button>
+                </div>
+            </div>
+
+            <!-- 11. ورد طرد العُمار -->
+            <div class="zekr-card" id="card-w11">
+                <div class="zekr-note">ورد طرد العُمار (يقرأ ثلاث مرات)</div>
+                <div class="zekr-content-inner">
+                    <p><strong>الدعاء:</strong> «بسم الله آمنت بالله الذى ليس منه شئ ممتنع وبعزه الله التى لا ترام ولا تضام وبسلطان الله المنيع نحتجب وبأسماء الله الحسنى كلها جميعا عائش من شياطين الإنس والجن ومن شر كل معلن او مسر ومن شر ما يسرح بالليل ويكمن بالنهار ومن شر ما يكمن بالليل ويسرح بالنهار ومن شر ابليس وجنوده ومن شر كل دابة ربى اخذ بناصيتها ان ربى على صراط مستقيم».</p>
+                    <p><strong>سورة الصافات (من الآية 1 إلى الآية 11):</strong> والصافات صفا (1) فالزاجرات زجرا (2) فالتاليات ذكرا (3) إن إلهكم لواحد (4) رب السماوات والأرض وما بينهما ورب المشارق (5) إنا زينا السماء الدنيا بزينة الكواكب (6) وحفظا من كل شيطان مارد (7) لا يسماعون إلى الملإ الأعلى ويقذفون من كل جانب (8) دحورا ولهم عذاب واصب (9) إلا من خطف الخطفة فأتبعه شهاب ثاقب (10) فاستفتهم أهم أشد خلقا أم من خلقنا إنا خلقناهم من طين لازب (11).</p>
+                    <p><em>(يقرأ ورد طرد العمار ثلاث مرات على ماء وزن المصحف الكبير ويرش به المنزل ويشرب منه اهل البيت ثلاث ايام)</em></p>
+                </div>
+                <div class="zekr-footer">
+                    <span class="counter-badge" id="w11">المتبقي: 3</span>
+                    <button class="count-btn" onclick="updateCounter('w11', 3)">قرأت مرة</button>
+                </div>
+            </div>
+
+            <!-- 12. آيات فك السحر -->
+            <div class="zekr-card" id="card-w12">
+                <div class="zekr-note">آيات فك السحر والشفاء الشاملة</div>
+                <div class="zekr-content-inner">
+                    <p><strong>سورة يونس (الآيتان 81 و 82):</strong> فلما ألقوا قال موسى ما جئتم به السحر إن الله سيطبطله إن الله لا يصلح عمل المفسدين (81) ويحق الله الحق بكلماته ولو كره المجرمون (82).</p>
+                    <p><strong>سورة الأعراف (الآيات من 117 إلى 122):</strong> وأوحينا إلى موسى أن ألق عصاك فإذا هي تلقف ما يأفكون (117) فوقع الحق وبطل ما كانوا يعملون (118) فغلبوا هنالك وانقلبوا صاغرين (119) وألقي السحرة ساجدين (120) قالوا آمنا برب العالمين (121) رب موسى وهارون (122).</p>
+                    <p><strong>سورة طه (الآيات من 65 إلى 70):</strong> قالوا يا موسى إما أن تلقي وإما أن نكون أول من ألقى (65) قال بل ألقوا فإذا حبالهم وعصيهم يخيل إليه من سحرهم أنها تسعى (66) فأوجس في نفسه خيفة موسى (67) قلنا لا تخف إنك أنت الأعلى (68) وألق ما في يمينك تلقف ما صنعوا إنما صنعوا كيد ساحر ولا يفلح الساحر حيث أتى (69) فألقي السحرة سجدا قالوا آمنا برب هارون وموسى (70).</p>
+                    <p><strong>قراءة (سلام قولا من رب رحيم) 11 مره</strong></p>
+                </div>
+                <div class="zekr-footer">
+                    <span class="counter-badge" id="w12">المتبقي: 1</span>
+                    <button class="count-btn" onclick="updateCounter('w12', 1)">تمت القراءة</button>
+                </div>
+            </div>
+
+            <!-- 13. خواتيم يس (من الآية 71 إلى 83) 11 مره -->
+            <div class="zekr-card" id="card-w13">
+                <div class="zekr-note">خواتيم يس (من الآية 71 إلى 83) (11 مرة)</div>
+                <div class="zekr-content-inner">
+                    <p>أولم يروا أنا خلقنا لهم مما عملت أيدينا أنعاما فهم لها مالكون (71) وذلَّلناها لهم فمنها ركوبهم ومنها يأكلون (72) ولهم فيها منافع ومشارب أفلا يشكرون (73) واتخذوا من دون الله آلهة لعلهم ينصرون (74) لا يستطيعون نصرهم وهم لهم جند محضرون (75) فلا يحزنك قولهم إنا نعلم ما يسرون وما يعلنون (76) أولم ير الإنسان أنا خلقناه من نطفة فإذا هو خصيم مبين (77) وضرب لنا مثلا ونسي خلقه قال من يحيي العظام وهي رميم (78) قل يحييها الذي أنشأها أول مرة وهو بكل خلق عليم (79) الذي جعل لكم من الشجر الأخضر نارا فإذا أنتم منه توقدون (80) أوليس الذي خلق السماوات والأرض بقادر على أن يخلق مثلهم بلى وهو الخلاق العليم (81) إنما أمره إذا أراد شيئا أن يقول له كن فيكون (82) فسبحان الذي بيده ملكوت كل شيء وإليه ترجعون (83).</p>
+                </div>
+                <div class="zekr-footer">
+                    <span class="counter-badge" id="w13">المتبقي: 11</span>
+                    <button class="count-btn" onclick="updateCounter('w13', 11)">قرأت مرة</button>
+                </div>
+            </div>
+
+            <!-- 14. سورة الإخلاص والمعوذتين (3 مرات) -->
+            <div class="zekr-card" id="card-w14">
+                <div class="zekr-note">سورة الإخلاص والمعوذتين (3 مرات)</div>
+                <div class="zekr-content-inner">
+                    <p><strong>سورة الإخلاص:</strong> قل هو الله أحد (1) الله الصمد (2) لم يلد ولم يولد (3) ولم يكن له كفوا أحد (4).</p>
+                    <p><strong>سورة الفلق:</strong> قل أعوذ برب الفلق (1) من شر ما خلق (2) ومن شر غاسق إذا وقب (3) ومن شر النفاثات في العقد (4) ومن شر حاسد إذا حسد (5).</p>
+                    <p><strong>سورة الناس:</strong> قل أعوذ برب الناس (1) ملك الناس (2) إله الناس (3) من شر الوسواس الخناس (4) الذي يوسوس في صدور الناس (5) من الجنة والناس (6).</p>
+                </div>
+                <div class="zekr-footer">
+                    <span class="counter-badge" id="w14">المتبقي: 3</span>
+                    <button class="count-btn" onclick="updateCounter('w14', 3)">قرأت مرة</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        const initialCounters = {
+            'w1': 7, 'w2': 7, 'w3': 1, 'w4': 7, 'w15': 7, 'w5': 1, 'w6': 1, 
+            'w7': 1, 'w8': 7, 'w9': 1, 'w10': 1, 'w11': 3, 'w12': 1, 
+            'w13': 11, 'w14': 3
+        };
+
+        let counters = {};
+
+        function loadCounters() {
+            const saved = localStorage.getItem('azkarr_full_v7');
+            if (saved) {
+                counters = JSON.parse(saved);
+            } else {
+                counters = { ...initialCounters };
+            }
+            for (let id in counters) {
+                updateBadgeUI(id, counters[id]);
+            }
+        }
+
+        function saveCounters() {
+            localStorage.setItem('azkarr_full_v7', JSON.stringify(counters));
+        }
+
+        function updateCounter(id, maxVal) {
+            if (counters[id] > 1) {
+                counters[id]--;
+            } else if (counters[id] === 1) {
+                counters[id] = 0;
+            }
+            saveCounters();
+            updateBadgeUI(id, counters[id]);
+        }
+
+        function updateBadgeUI(id, val) {
+            const badge = document.getElementById(id);
+            const card = document.getElementById('card-' + id);
+            if (!badge) return;
+
+            if (val > 0) {
+                badge.innerText = "المتبقي: " + val;
+                badge.classList.remove('done');
+                if (card) card.classList.remove('completed');
+            } else {
+                badge.innerText = "تمت القراءة ✓";
+                badge.classList.add('done');
+                if (card) card.classList.add('completed');
+            }
+        }
+
+        function resetAllCounters() {
+            counters = { ...initialCounters };
+            saveCounters();
+            for (let id in counters) {
+                updateBadgeUI(id, counters[id]);
+            }
+        }
+
+        function toggleTheme() {
+            const body = document.documentElement;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            if (newTheme === 'light') {
+                body.setAttribute('data-theme', 'light');
+                document.getElementById('theme-icon').innerText = '🌙';
+                document.getElementById('theme-text').innerText = 'dark';
+            } else {
+                body.removeAttribute('data-theme');
+                document.getElementById('theme-icon').innerText = '☀️';
+                document.getElementById('theme-text').innerText = 'light';
+            }
+            localStorage.setItem('azkarr_theme', newTheme);
+        }
+
+        window.onload = function() {
+            loadCounters();
+            const savedTheme = localStorage.getItem('azkarr_theme');
+            if (savedTheme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+                document.getElementById('theme-icon').innerText = '🌙';
+                document.getElementById('theme-text').innerText = 'dark';
+            }
+        };
+    </script>
+</body>
+</html>
